@@ -37,11 +37,22 @@ struct WeatherManager {
             return
         }
         
-        // no errors: call the api server
+        // no errors: read the data
         if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString)
+            parseJSON(weatherData: safeData)
         }
+    }
+    
+    // parse the server response
+    func parseJSON(weatherData: Data) {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+            print(decodedData.main.temp)
+        } catch {
+            print(error)
+        }
+
     }
     
 }

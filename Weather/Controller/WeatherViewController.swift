@@ -31,7 +31,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     // The return button gets pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(searchTextField.text!)
         searchTextField.endEditing(true)
         return true
     }

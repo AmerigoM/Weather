@@ -27,6 +27,8 @@ class WeatherViewController: UIViewController {
         // we need to be the delegate to tap into the return button of the keyboard
         searchTextField.delegate = self
         
+        // set the desired accuracy
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         // request permission for getting location data
         locationManager.requestWhenInUseAuthorization()
         // retrieve the location in the locationManager function

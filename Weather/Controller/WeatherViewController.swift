@@ -55,9 +55,14 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         }
     }
     
-    // requirement of the protocol
-    func didUpdateWeather(weather: WeatherModel) {
+    // MARK: - WeatherManagerDelegate protocol methods
+    
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         print(weather.temperature)
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
     }
     
 }
